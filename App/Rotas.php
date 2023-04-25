@@ -12,7 +12,7 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 switch($url)
 {
     /**
-  * [OK] Exemplo de Acesso:http://localhost:
+  * [OK] Exemplo de Acesso:http://10.0.2.2/correntista/save
  */
   case '/correntista/save':
     CorrentistaController::salvar();
@@ -20,7 +20,7 @@ switch($url)
 
     
     /**
-  * [OK] Exemplo de Acesso:http://localhost:
+  * [OK] Exemplo de Acesso:http://10.0.2.2/correntista/entrar
  */
     case '/correntista/entrar':
         CorrentistaController::entrar();
@@ -28,14 +28,14 @@ switch($url)
 
         
     /**
-  * [OK] Exemplo de Acesso:http://localhost:
+  * [OK] Exemplo de Acesso:http://10.0.2.2/conta/pix/enviar
  */
         case '/conta/pix/enviar':
             ContaController::enviar();
             break;
 
     /**
-  * [OK] Exemplo de Acesso:http://localhost:
+  * [OK] Exemplo de Acesso:http://10.0.2.2/conta/pix/receber
  */
 
             case '/conta/pix/receber':
@@ -43,7 +43,7 @@ switch($url)
                 break;
                 
     /**
-  * [OK] Exemplo de Acesso:http://localhost:
+  * [OK] Exemplo de Acesso:http://10.0.2.2/conta/extrato
  */
 
 
