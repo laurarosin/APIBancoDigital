@@ -16,41 +16,41 @@ switch($url)
  */
   case '/correntista/save':
     CorrentistaController::salvar();
-    break;   
+  break;   
 
     
     /**
   * [OK] Exemplo de Acesso:http://10.0.2.2/correntista/entrar
  */
     case '/correntista/entrar':
-        CorrentistaController::entrar();
-        break;
+      CorrentistaController::entrar();
+     break;
 
         
     /**
   * [OK] Exemplo de Acesso:http://10.0.2.2/conta/pix/enviar
  */
-        case '/conta/pix/enviar':
-            ContaController::enviar();
-            break;
+    case '/conta/pix/enviar':
+      ContaController::enviar();
+    break;
 
     /**
   * [OK] Exemplo de Acesso:http://10.0.2.2/conta/pix/receber
  */
 
-            case '/conta/pix/receber':
-                ContaController::receber();
-                break;
+    case '/conta/pix/receber':
+      ContaController::receber();
+     break;
                 
     /**
   * [OK] Exemplo de Acesso:http://10.0.2.2/conta/extrato
  */
 
 
-                case '/conta/extrato':
-                    ContaController::extrato();
-                    break;
-                
+   case '/conta/extrato':
+     ContaController::extrato();
+    break;
+              
 }
 
 
