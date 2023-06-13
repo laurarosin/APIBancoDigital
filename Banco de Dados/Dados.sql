@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Correntista` (
   `Id_Correntista` INT NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `CPF` CHAR(11) NOT NULL,
-  `Data_Nascimento` DATE NOT NULL,
+  `data_nasc` DATE NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Id_Correntista`))
 ENGINE = InnoDB;

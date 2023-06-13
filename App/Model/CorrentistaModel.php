@@ -6,7 +6,7 @@ use APP\DAO\CorrentistaDAO;
 
 class CorrentistaModel extends Model
 {
-    public $id, $nome, $cpf, $data_nasc;
+    public $id, $nome, $cpf, $data_nasc, $senha;
 
     public function save()
     {

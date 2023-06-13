@@ -23,25 +23,28 @@ class CorrentistaDAO extends DAO
 
     public function insert(CorrentistaModel $m) : bool
     {
-        $sql = "INSERT INTO correntista (nome,cpf,data_nasc) VALUES (?, ?, ?) ";
+        $sql = "INSERT INTO correntista (nome,cpf,data_nasc, senha) VALUES (?, ?, ?, ?) ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $m->nome);
         $stmt->bindValue(2, $m->cpf);
         $stmt->bindValue(3, $m->data_nasc);
+        $stmt->bindValue(4, $m->senha);
 
         return $stmt->execute();
     }
 
     public function update(CorrentistaModel $m)
     {
-        $sql = "UPDATE correntista SET nome=?, cpf =?, data_nasc=? WHERE id=? ";
+        $sql = "UPDATE correntista SET nome=?, cpf =?, data_nasc=? senha=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $m->nome);
         $stmt->bindValue(2, $m->cpf);
         $stmt->bindValue(3, $m->data_nasc);
-        $stmt->bindValue(4, $m->id);
+        $stmt->bindValue(4, $m->senha);
+        $stmt->bindValue(5, $m->id);
+
         
         return $stmt->execute();
     }

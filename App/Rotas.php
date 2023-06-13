@@ -14,7 +14,7 @@ switch($url)
     /**
   * [OK] Exemplo de Acesso:http://0.0.0.0:8000/correntista/save
  */
-  case '/correntista/save':
+  case '/correntista/salvar':
     CorrentistaController::salvar();
   break;   
 
