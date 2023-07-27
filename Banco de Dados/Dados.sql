@@ -21,11 +21,13 @@ USE `mydb` ;
 -- Table `mydb`.`Correntista`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Correntista` (
-  `Id_Correntista` INT NOT NULL,
-  `Nome` VARCHAR(45) NOT NULL,
+  `Id_Correntista` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NULL,
   `CPF` CHAR(11) NOT NULL,
   `data_nasc` DATE NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
+  `saldo` DOUBLE NOT NULL,
+  `limite` DOUBLE NOT NULL,
   PRIMARY KEY (`Id_Correntista`))
 ENGINE = InnoDB;
 
@@ -34,7 +36,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Conta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Conta` (
-  `Id_Conta` INT NOT NULL,
+  `Id_Conta` INT NOT NULL AUTO_INCREMENT,
   `Numero` INT(20) NOT NULL,
   `Tipo` VARCHAR(45) NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
@@ -53,7 +55,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Chave_Pix`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Chave_Pix` (
-  `Id_Chave` INT NOT NULL,
+  `Id_Chave` INT NOT NULL AUTO_INCREMENT,
   `Chave` VARCHAR(45) NOT NULL,
   `Tipo` VARCHAR(45) NOT NULL,
   `id_conta` INT NOT NULL,
@@ -71,7 +73,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Transacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Transacao` (
-  `Id_Transacao` INT NOT NULL,
+  `Id_Transacao` INT NOT NULL AUTO_INCREMENT,
   `Valor` DOUBLE NOT NULL,
   `Data_Evento` TIMESTAMP NOT NULL,
   PRIMARY KEY (`Id_Transacao`))

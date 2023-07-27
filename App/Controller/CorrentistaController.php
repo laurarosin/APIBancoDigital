@@ -19,6 +19,8 @@ class CorrentistaController extends Controller
             $model->cpf = $json_obj->CPF;
             $model->data_nasc = $json_obj->data_nasc;
             $model-> senha = $json_obj ->senha;
+            $model-> limite = $json_obj ->limite;
+            $model-> saldo = $json_obj ->saldo;
 
             $model->save();
         }catch(Exception $e)
