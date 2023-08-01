@@ -18,6 +18,8 @@ class ContaController extends Controller
             $model->numero= $json_obj->Numero;
             $model->tipo= $json_obj->Tipo;
             $model->senha-> $json_obj->Senha;
+            $model-> limite = $json_obj ->limite;
+            $model-> saldo = $json_obj ->saldo;
 
             $model->save();
         }catch(Exception $e)

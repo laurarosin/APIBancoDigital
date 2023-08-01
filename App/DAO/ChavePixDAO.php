@@ -3,6 +3,7 @@
 namespace APP\DAO;
 
 use APP\Model\ChavePixModel;
+use PDO;
 
 class ChavePixDAO extends DAO
 {

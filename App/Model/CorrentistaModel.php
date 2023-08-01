@@ -8,6 +8,7 @@ use APP\DAO\CorrentistaDAO;
 class CorrentistaModel extends Model
 {
     public $id, $nome, $cpf, $data_nasc, $senha;
+    public $rows_contas;
 
     public function save(): ?CorrentistaModel
     {
@@ -37,7 +38,7 @@ class CorrentistaModel extends Model
             $conta_poupanca->tipo = 'p';
             $conta_poupanca = $dao_conta->insert($conta_poupanca);
 
-            $model_preenchido->rows_conta[] = $conta_poupanca;
+            $model_preenchido->rows_contas[] = $conta_poupanca;
         }
         return $model_preenchido;
     }  

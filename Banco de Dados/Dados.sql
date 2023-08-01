@@ -26,8 +26,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Correntista` (
   `CPF` CHAR(11) NOT NULL,
   `data_nasc` DATE NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
-  `saldo` DOUBLE NOT NULL,
-  `limite` DOUBLE NOT NULL,
   PRIMARY KEY (`Id_Correntista`))
 ENGINE = InnoDB;
 
@@ -41,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Conta` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
   `id_correntista` INT NOT NULL,
+  `limite` DOUBLE NOT NULL,
+  `saldo` DOUBLE NOT NULL,
   PRIMARY KEY (`Id_Conta`),
   INDEX `id_correntista_idx` (`id_correntista` ASC) VISIBLE,
   CONSTRAINT `id_correntista`

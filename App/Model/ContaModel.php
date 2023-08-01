@@ -5,14 +5,22 @@ use APP\DAO\ContaDAO;
 
 class ContaModel extends Model
 {
-    public $id, $numero, $tipo, $senha;
+    public $id, $id_correntista,$numero, $tipo, $senha, $limite, $saldo;
 
     public function save()
     {
-        if($this->id == null)
-        (new ContaDAO())->insert($this);
-    else
-        (new ContaDAO())->update($this);
+        $dao= new ContaDAO();
+
+         if(empty($this->id))
+         {
+            $dao->insert($this);
+
+         }
+         else 
+         {
+            $dao->update($this);
+         }
+        
     }
 
     public function getAllRows()
