@@ -23,33 +23,33 @@ class TransacaoDAO extends DAO
 
     public function insert(TransacaoModel $m) : bool
     {
-        $sql = "INSERT INTO transacao (valor,data_evento) VALUES (?, ?) ";
+        $sql = "INSERT INTO transacao (Valor,Data_evento) VALUES (?, ?) ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $m->valor);
-        $stmt->bindValue(2, $m->data_evento);
+        $stmt->bindValue(1, $m->Valor);
+        $stmt->bindValue(2, $m->Data_evento);
 
         return $stmt->execute();
     }
 
     public function update(TransacaoModel $m)
     {
-        $sql = "UPDATE transacao SET valor=?, data_evento=? WHERE id=? ";
+        $sql = "UPDATE transacao SET Valor=?, Data_evento=? WHERE Id=? ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $m->valor);
-        $stmt->bindValue(2, $m->data_evento);
-        $stmt->bindValue(3, $m->id);
+        $stmt->bindValue(1, $m->Valor);
+        $stmt->bindValue(2, $m->Data_evento);
+        $stmt->bindValue(3, $m->Id);
         
         return $stmt->execute();
     }
 
-    public function delete(int $id) : bool
+    public function delete(int $Id) : bool
     {
-        $sql = "DELETE FROM transacao WHERE id = ? ";
+        $sql = "DELETE FROM transacao WHERE Id = ? ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $Id);
         return $stmt->execute();
     }
 }

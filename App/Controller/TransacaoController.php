@@ -13,10 +13,10 @@ class TransacaoController extends Controller
         {
             $json_obj = json_decode(file_get_contents('php://input'));
 
-            $model = new TransacaoModel();
-            $model->id= $json_obj->Id;
-            $model->valor= $json_obj->Valor;
-            $model->data_evento= $json_obj->Data_evento;
+            $model = new TransacaoModel(); 
+            $model->Id= $json_obj->Id;
+            $model->Valor= $json_obj->Valor;
+            $model->Data_evento= $json_obj->Data_evento;
            
             $model->save();
         }catch(Exception $e)

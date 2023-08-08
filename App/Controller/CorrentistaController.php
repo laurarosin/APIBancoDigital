@@ -14,11 +14,11 @@ class CorrentistaController extends Controller
             $json_obj = json_decode(file_get_contents('php://input'));
 
             $model = new CorrentistaModel();
-            $model->id = $json_obj->id;
-            $model->nome = $json_obj->nome;
-            $model->cpf = $json_obj->CPF;
+            $model->Id_Correntista = $json_obj->Id_Correntista;
+            $model->Nome = $json_obj->Nome;
+            $model->CPF = $json_obj->CPF;
             $model->data_nasc = $json_obj->data_nasc;
-            $model-> senha = $json_obj ->senha;           
+            $model-> Senha = $json_obj ->Senha;           
 
             parent::getResponseAsJSON($model->save());
 
@@ -34,9 +34,11 @@ class CorrentistaController extends Controller
         {
             $model = new CorrentistaModel();
 
-            $model->getAllRows();
+            $data = json_decode(file_get_contents('php://input'));
 
-            parent::getResponseAsJSON($model->rows);
+            $model = new CorrentistaModel();
+          //  parent::getResponseAsJSON($model->getByCpfAndSenha($data->CPF, $data->Senha)); 
+             parent::getResponseAsJSON($model->rows);
         }catch(Exception $e)
         {
             parent::getExceptionAsJSON($e);

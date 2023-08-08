@@ -5,11 +5,11 @@ use APP\DAO\TransacaoDAO;
 
 class TransacaoModel extends Model
 {
-    public $id, $valor, $data_evento;
+    public $Id, $Valor, $Data_evento;
 
     public function save()
     {
-        if($this->id == null)
+        if($this->Id == null)
         (new TransacaoDAO())->insert($this);
     else
         (new TransacaoDAO())->update($this);

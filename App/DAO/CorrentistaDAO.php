@@ -13,7 +13,7 @@ class CorrentistaDAO extends DAO
 
     public function save(CorrentistaModel $m) : CorrentistaModel
     {
-        return ($m->id=null) ? $this->insert($m) : $this->update($m);
+        return ($m->Id_Correntista == null) ? $this->insert($m) : $this->update($m);
     }
 
     public function select()
@@ -28,17 +28,17 @@ class CorrentistaDAO extends DAO
 
     public function insert(CorrentistaModel $model)
     {
-        $sql = "INSERT INTO correntista (nome,cpf,data_nasc,senha) VALUES (?, ?, ?, ?) ";
+        $sql = "INSERT INTO correntista (Nome,CPF,data_nasc,Senha) VALUES (?, ?, ?, ?) ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->cpf);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->CPF);
         $stmt->bindValue(3, $model->data_nasc);
-        $stmt->bindValue(4, $model->senha);
+        $stmt->bindValue(4, $model->Senha);
 
         $stmt->execute();
 
-        $model->id = $this->conexao->lastInsertId();
+        $model->Id_Correntista = $this->conexao->lastInsertId();
 
         return $model;
 
@@ -47,34 +47,34 @@ class CorrentistaDAO extends DAO
 
    public function update(CorrentistaModel $m)
     {
-       // $sql = "UPDATE correntista SET nome=?, cpf =?, data_nasc=?, senha=? WHERE id=? ";
+        $sql = "UPDATE correntista SET Nome=?, CPF =?, data_nasc=?, Senha=? WHERE Id_Correntista=? ";
 
-       // $stmt = $this->conexao->prepare($sql);
-        //$stmt->bindValue(1, $m->nome);
-        //$stmt->bindValue(2, $m->cpf);
-        //$stmt->bindValue(3, $m->data_nasc);
-        //$stmt->bindValue(4, $m->senha);
-        //$stmt->bindValue(5, $m->id);
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $m->Nome);
+        $stmt->bindValue(2, $m->CPF);
+        $stmt->bindValue(3, $m->data_nasc);
+        $stmt->bindValue(4, $m->Senha);
+        $stmt->bindValue(5, $m->Id_Correntista);
 
-        //return $stmt->execute();
+        return $stmt->execute();
     }
 
-    public function delete(int $id) : bool
+    public function delete(int $Id) : bool
     {
         $sql = "DELETE FROM correntista WHERE id = ? ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $Id);
         return $stmt->execute();
     }
 
-    public function selectByCpfAndSenha($cpf, $senha) : CorrentistaModel
+    public function selectByCpfAndSenha($CPF, $Senha) : CorrentistaModel
     {
-        $sql = "SELECT * FROM correntista WHERE cpf = ? AND senha = sha1(?) ";
+        $sql = "SELECT * FROM correntista WHERE CPF = ? AND Senha = sha1(?) ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $cpf);
-        $stmt->bindValue(2, $senha);
+        $stmt->bindValue(1, $CPF);
+        $stmt->bindValue(2, $Senha);
         $stmt->execute();
 
         $obj = $stmt->fetchObject("App\Model\CorrentistaModel");

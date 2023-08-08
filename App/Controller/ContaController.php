@@ -14,10 +14,10 @@ class ContaController extends Controller
             $json_obj = json_decode(file_get_contents('php://input'));
 
             $model = new ContaModel();
-            $model->id= $json_obj->Id;
-            $model->numero= $json_obj->Numero;
-            $model->tipo= $json_obj->Tipo;
-            $model->senha-> $json_obj->Senha;
+            $model->Id= $json_obj->Id;
+            $model->Numero= $json_obj->Numero;
+            $model->Tipo= $json_obj->Tipo;
+            $model->Senha-> $json_obj->Senha;
             $model-> limite = $json_obj ->limite;
             $model-> saldo = $json_obj ->saldo;
 

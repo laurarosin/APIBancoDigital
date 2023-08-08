@@ -5,11 +5,11 @@ use APP\DAO\ChavePixDAO;
 
 class ChavePixModel extends Model
 {
-    public $id, $chave, $tipo, $id_conta;
+    public $Id, $Chave, $Tipo, $Id_Conta;
 
     public function save()
     {
-        if($this->id == null)
+        if($this->Id == null)
         (new ChavePixDAO())->insert($this);
     else
         (new ChavePixDAO())->update($this);

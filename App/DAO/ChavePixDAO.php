@@ -24,35 +24,35 @@ class ChavePixDAO extends DAO
 
     public function insert(ChavePixModel $m) : bool
     {
-        $sql = "INSERT INTO ChavePix (chave,tipo,id_conta) VALUES (?, ?, ?) ";
+        $sql = "INSERT INTO ChavePix (Chave,Tipo,Id_Conta) VALUES (?, ?, ?) ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $m->chave);
-        $stmt->bindValue(2, $m->tipo);
-        $stmt->bindValue(3, $m->id_conta);
+        $stmt->bindValue(1, $m->Chave);
+        $stmt->bindValue(2, $m->Tipo);
+        $stmt->bindValue(3, $m->Id_Conta);
 
         return $stmt->execute();
     }
 
     public function update(ChavePixModel $m)
     {
-        $sql = "UPDATE ChavePix SET chave=?, tipo =?, id_conta=? WHERE id=? ";
+        $sql = "UPDATE ChavePix SET Chave=?, Tipo =?, Id_Conta=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $m->chave);
-        $stmt->bindValue(2, $m->tipo);
-        $stmt->bindValue(3, $m->id_conta);
-        $stmt->bindValue(4, $m->id);
+        $stmt->bindValue(1, $m->Chave);
+        $stmt->bindValue(2, $m->Tipo);
+        $stmt->bindValue(3, $m->Id_Conta);
+        $stmt->bindValue(4, $m->Id);
         
         return $stmt->execute();
     }
 
-    public function delete(int $id) : bool
+    public function delete(int $Id) : bool
     {
-        $sql = "DELETE FROM ChavePix WHERE id = ? ";
+        $sql = "DELETE FROM ChavePix WHERE Id = ? ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $Id);
         return $stmt->execute();
     }
 }
