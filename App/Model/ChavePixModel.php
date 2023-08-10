@@ -7,16 +7,18 @@ class ChavePixModel extends Model
 {
     public $Id, $Chave, $Tipo, $Id_Conta;
 
-    public function save()
+    public function save() : ?ChavePixModel
     {
-        if($this->Id == null)
-        (new ChavePixDAO())->insert($this);
-    else
-        (new ChavePixDAO())->update($this);
+        return (new ChavePixDAO())->save($this);
     }
 
-    public function getAllRows()
+    public function getAllRows(int $Id_Correntista) : array
     {
-        $this->rows = (new ChavePixDAO())->select();
+        return (new ChavePixDAO())->select($Id_Correntista);
+    }
+
+    public function remove() : bool
+    {
+        return (new ChavePixDAO())->delete($this);
     }
 }

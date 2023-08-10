@@ -56,4 +56,21 @@ class ChavePixController extends Controller
         }
     }
 
+    public static function listar() : void
+    {
+        try
+        {
+            $data = json_decode(file_get_contents('php://input'));
+            $model = new ChavePixModel;
+
+            parent::getResponseAsJSON($model->getAllRows($data->Id_Correntista));
+
+        } catch(Exception $e)
+        {
+            parent:: LogError($e);
+            parent:: getExceptionAsJSON($e);
+        }
+
+    }
+
 }
