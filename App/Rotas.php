@@ -6,6 +6,7 @@ use APP\Controller\{
     ContaController,
     TransacaoController
 };
+use APP\DAO\TransacaoDAO;
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -38,16 +39,16 @@ switch($url)
     /**
   * [OK] Exemplo de Acesso:http://0.0.0.0:8000/conta/pix/enviar
  */
-    case '/conta/pix/enviar':
-      ContaController::enviar();
+    case '/transacao/pix/enviar':
+      TransacaoController::enviar();
     break;
 
     /**
   * [OK] Exemplo de Acesso:http://0.0.0.0:8000/conta/pix/receber
  */
 
-    case '/conta/pix/receber':
-      ContaController::receber();
+    case '/transacao/pix/receber':
+      TransacaoController::receber();
      break;
                 
     /**
@@ -58,7 +59,28 @@ switch($url)
    case '/conta/extrato':
      ContaController::extrato();
     break;
-              
+
+    
+  case '/pix/chave/remover':
+    ChavePixController::remover();
+    break;
+  
+  case '/pix/chave/salvar':
+    ChavePixController::salvar();
+    break;
+
+  case '/chave/pix/listar':
+    ChavePixController::listar();
+    break;
+  
+  case'/conta/fechar':
+    ContaController::fechar();
+    break;
+  
+  case '/conta/abrir':
+    ContaController::abrir();
+    break;
+
 }
 
 

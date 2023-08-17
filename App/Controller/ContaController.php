@@ -57,5 +57,14 @@ class ContaController extends Controller
             parent::getExceptionAsJSON($e);
         }
     }
+    public static function fechar()
+    {
+
+    }
+
+    public static function abrir()
+    {
+        
+    }
 
 }
