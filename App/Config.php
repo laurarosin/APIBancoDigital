@@ -8,4 +8,4 @@ $_ENV['db']['user'] = 'root';
 
 $_ENV['db']['pass'] = 'etecjau';
 
-$_ENV['db']['database'] = 'mydb';
+$_ENV['db']['database'] = 'db_digital';

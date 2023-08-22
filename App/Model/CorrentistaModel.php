@@ -48,6 +48,10 @@ class CorrentistaModel extends Model
         $this->rows = (new CorrentistaDAO())->select();
     }
 
-
+    public function getByCpfAndSenha($CPF, $Senha) : CorrentistaModel
+    {
+        return (new CorrentistaDAO())->selectByCpfAndSenha($CPF, $Senha);
+    }
+    
 }
 
